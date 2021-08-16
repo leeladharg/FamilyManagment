@@ -18,7 +18,7 @@ public class FamilyService {
 	@Autowired
 	FamilyMemberRepository familyMemberRepo;
 	
-	public FamilyMember getMemberById(int id) {
+	public FamilyMember getMemberById(Long id) {
 		log.info("getMemberById in service calling repo....");
 		Optional<FamilyMember> obj1 =familyMemberRepo.findById(id);
 		log.info("Got res from repo....");
@@ -39,7 +39,7 @@ public class FamilyService {
 		log.info("upateMember in Service!....");
 		GenericResponse res = new GenericResponse();
 		
-		Optional<FamilyMember> opt =familyMemberRepo.findById(member.getMid());
+		Optional<FamilyMember> opt =familyMemberRepo.findById(member.getId());
 		log.info("Got res from repo....");
 		FamilyMember obj=opt.get();
 		obj.setFirstName(member.getFirstName());
